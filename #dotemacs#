@@ -1,0 +1,141 @@
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(initial-major-mode (quote text-mode))
+ '(org-agenda-files (quote ("~/org.org")))
+ '(preview-LaTeX-command (quote ("%`%l \"\\nonstopmode\\nofiles\\PassOptionsToPackage{" ("," . preview-required-option-list) "}{preview}\\AtBeginDocument{\\ifx\\ifPreview\\undefined" preview-default-preamble "\\fi}\"%' %t")))
+ '(preview-default-option-list (quote ("displaymath" "floats" "graphics" "textmath" "sections" "footnotes")))
+ '(preview-default-preamble (quote ("\\RequirePackage[" ("," . preview-default-option-list) "]{preview}[2004/11/05]" "\\PreviewEnvironment{itemize}" "\\PreviewEnvironment{verbatim}" "\\PreviewEnvironment{ocaml}" "\\PreviewEnvironment{tikzpicture}" "\\PreviewMacro[!]{\\n}" "\\PreviewMacro[!]{\\citet}" "\\PreviewMacro[!]{\\citep}"))))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "white" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal :foundry "xos4" :family "Terminus")))))
+
+
+;;; Personal Customizations ;;;
+
+;;;Loading Libraries
+(setq load-path (cons "~/emacs/site-lisp" load-path))
+
+(load-library "linum")
+(load-library "midnight")
+(load-library "dot-mode")             ;; Use C-. to redo commands
+;(load-library "flex-mode")
+(load-library "buff-menu+")
+(load-library "save-macro")
+(load-library "myutilities")
+(load-library "gse-number-rect")
+(load-library "auctex")
+(load-library "preview-latex")
+
+(require 'ido)
+(require 'uniquify)
+(require 'dot-mode)
+
+(load "tramp")
+(load "vip")
+;(require 'viper)
+
+;;;Key shortcuts
+(global-set-key "\C-cz"  'zsh)
+(global-set-key "\M-h"   'help)
+(global-set-key "\C-ce"  'eshell)
+(global-set-key "\C-z"   'vip-mode)                ;; Easy switching to Vi mode
+(global-set-key "\M-g"   'goto-line)
+(global-set-key "\C-cl"  'linum-mode)
+;(global-set-key "\C-cw"  'kill-region)             ;; Replaces C-w
+(global-set-key "\C-cm"  'menu-bar-mode)           ;; Sometimes the menu is useful
+(global-set-key "\C-cb"  'revert-buffer)           ;; Occasionally used frequently
+(global-set-key "\C-cr"  'comment-region)          ;; A must
+(global-set-key "\C-ch"  'mark-paragraph)          ;; previously M-h
+(global-set-key "\M-z"   'zap-up-to-char)          ;; I like better than zap-to-char
+(global-set-key "\C-cu"  'uncomment-region)        ;; Likewise
+(global-set-key "\C-cs"  'spacey-parenthesis)        ;; Likewise
+;(global-set-key "\C-w"  'backward-kill-word)      ;; Uncomment for terminal style words
+;(global-set-key "\M-C-h" 'backward-kill-word)
+(global-set-key "\C-h"   'backward-delete-char)    ;; I like terminal style backspace
+(global-set-key "\C-cv"  'vip-change-mode-to-vi)
+(global-set-key "\C-cd"  'delete-trailing-whitespace)
+
+
+;;;Mode configurations
+
+(unless (assoc "\\.org\\'" auto-mode-alist)
+  (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode)))
+(add-hook 'org-mode-hook (lambda () (local-set-key "\M-m" 'org-meta-return)))
+(add-hook 'org-mode-hook 'org-indent-mode)
+(add-hook 'find-file-hooks 'linum-on)                   ;; Turn on linum when a file is opened
+(add-hook 'find-file-hooks 'dot-mode-on)                  ;; Same for dot mode
+;(add-hook 'find-file-hooks 'vip-mode)
+(setq uniquify-separator "|")
+(setq uniquify-after-kill-buffer-p t)
+(setq uniquify-ignore-buffers-re "^\\*")
+(setq uniquify-buffer-name-style 'reverse)
+(setq ido-enable-flex-matching t)
+(setq vip-inhibit-startup-message t)
+
+;;;Globalize some modes
+
+
+
+;(viper-change-state-to-emacs)
+
+;;; Misc
+(ido-mode t)                                     ;; Interactive Do, for opening files and switching buffers
+;(iswitchb-mode 1)                                ;; Interactive buffer switching, don't use with ido
+(tool-bar-mode -1)                               ;; Remove the entirely useless tool-bar
+(menu-bar-mode -1)                               ;; Hide menu
+(show-paren-mode 1)                              ;; Show Paren-matching
+;(global-dot-mode 1)                              ;; C-. to redo
+;(global-vip-mode 1)                              ;; Turn on global vip mode (in insert)
+;(setq viper-mode t)                              ;; Viper mode if you want it, I prefer vip
+(scroll-bar-mode -1)                             ;; I hate the scroll bar
+(line-number-mode 1)                             ;; Show line number on mode-bar
+(blink-cursor-mode 1)                            ;; I like blink
+;(global-linum-mode 1)                            ;; Have line numbers on right hand side for all buffers by default
+(column-number-mode 1)                           ;; Show column number on mode bar
+(transient-mark-mode 1)                          ;; Show Highlight-region
+(setq echo-keystrokes 0.1)                       ;; Quickly show key pressed
+(setq inhibit-splash-screen t)                   ;; I hate the splash screen
+(setq-default indent-tabs-mode nil)              ;; Use spaces instead of tabs
+(add-hook 'text-mode-hook 'flyspell-mode)        ;; Auto-flyspell for text mode
+(midnight-delay-set 'midnight-delay "4:30am")    ;; Performs midnight mode at 4:30am, namely clean-buffer-list
+(setq clean-buffer-list-delay-special (* 1 60))  ;; Clean special buffers
+(add-to-list 'backup-directory-alist             ;; Move all those NAME~ files to ~/backups
+             '("." . "~/.backups/"))
+
+;;; End Personal Customizations;;;
+
+(defun word-count nil "Count words in buffer" (interactive)
+  (shell-command-on-region (point-min) (point-max) "wc -w"))
+
+
+
+;;; Maude ;;;
+(setq maude-path "/home/anony/maude-linux/maude")
+(load-library "maude-mode")
+;;; End Maude ;;;
+
+;;; Haskell ;;;
+(load "~/emacs/site-lisp/haskell-mode-2.4/haskell-site-file")
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
+;;; End Haskell ;;;
+
+;;; OCaml ;;;
+(load-library "tuareg")
+(setq auto-mode-alist (cons '("\\.ml\\w?" . tuareg-mode) auto-mode-alist))
+(autoload 'tuareg-mode "tuareg" "Major mode for editing Caml code" t)
+(autoload 'camldebug "camldebug" "Run the Caml debugger" t)
+;;; End Ocaml ;;;
+
+(setq default-tab-width 4)
+
+
+;;; Auto-saved macros ( to the end of the file) ;;;
+

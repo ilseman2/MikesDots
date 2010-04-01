@@ -1,0 +1,25 @@
+(load-library "linum")
+(load-library "midnight")
+(load-library "dot-mode")             ;; Use C-. to redo commands
+;(load-library "flex-mode")
+(load-library "buff-menu+")
+(load-library "save-macro")
+(load-library "myutilities")
+(load-library "gse-number-rect")
+(load-library "auctex")
+(load-library "preview-latex")
+
+(require 'ido)
+(require 'uniquify)
+(require 'dot-mode)
+(require 'color-theme)
+
+(load "tramp")
+(load "vip")
+;(require 'viper)
+
+(load-library "maude-mode")
+(load-library "tuareg")
+
+(require 'yaml-mode)
+
