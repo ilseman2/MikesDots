@@ -7,12 +7,12 @@
 # kpackagekit-smart-icon &
 
 trayer --edge top --align right --height 1 --width 5 --SetDockType true --SetPartialStrut true --expand true --tint 0x555555 --alpha 225 &
-###mkdir -p /tmp/cache/http/files.gokgs.com/javaBin
-###cp ~/Desktop/cgoban.jar /tmp/cache/http/files.gokgs.com/javaBin
 
-exec nm-applet --sm-disable &
+
+# Uncomment to enable networkmanager applet
+#exec nm-applet --sm-disable &
+
 exec emacs --daemon &
 exec urxvtd -f &
-###exec setxkbmap dvorak &
 xmodmap .xmodmap
 exec ck-launch-session xmonad

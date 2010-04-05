@@ -86,12 +86,13 @@ my %links = (
     'uncrustify.cfg' => '.uncrustify.cfg',
     'indent.pro'     => '.indent.pro',
 
-    xmobarrc    => '.xmobarrc',
+    xmobarrc   => '.xmobarrc',
 
-    gitconfig => '.gitconfig',
+    gitconfig  => '.gitconfig',
 
     caffeinate => 'bin/caffeinate',
     lock       => 'bin/lock',
+    wpa        => 'wpa',
     );
 
 my $i = 0; # Keep track of how many links we added

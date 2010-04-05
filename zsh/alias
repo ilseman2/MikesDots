@@ -24,7 +24,7 @@ alias c..="cd .."
 
 alias h="htop"
 alias ef="ps -ef"
-alias dus="du -s ./*"
+alias dus="du -sc ./*"
 
 alias emacsd="command emacs --daemon"
 alias emacs="emacsclient -c"
