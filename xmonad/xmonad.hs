@@ -38,7 +38,7 @@ myLayoutHook = Full ||| tiled ||| Mirror tiled ||| Grid
 main = do
 	xmproc <- spawnPipe "xmobar"
 	xmonad $ defaultConfig
-			{ manageHook = manageDocks <+> scratchpadManageHook (W.RationalRect 0.25 0.25 0.5 0.5) <+> manageHook defaultConfig 
+			{ manageHook = manageDocks <+> scratchpadManageHook (W.RationalRect 0.25 0.25 0.5 0.5) <+> manageHook defaultConfig
 			, layoutHook = avoidStruts  $  smartBorders $ myLayoutHook
 			, logHook    = dynamicLogWithPP $ xmobarPP
 				{ ppOutput = hPutStrLn xmproc
@@ -56,6 +56,7 @@ main = do
 			, ("M-S-l", spawn "~/bin/lock")
 ---			, ("M-e", spawn "emacsclient -c")
 			, ("M-f", spawn "firefox")
-			, ("M-r", spawn "urxvtc")                                                     
+			, ("M-r", spawn "urxvtc")
+			, ("M-S-t", spawn "trackpad-toggle") -- Turn on/off trackpad
 			, ("M-g", scratchpadSpawnActionTerminal "urxvtc")
 			]

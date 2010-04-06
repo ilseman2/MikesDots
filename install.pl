@@ -92,7 +92,8 @@ my %links = (
 
     caffeinate => 'bin/caffeinate',
     lock       => 'bin/lock',
-    wpa        => 'wpa',
+    wpa        => 'bin/wpa',
+    trackpad_toggle => 'bin/trackpad-toggle',
     );
 
 my $i = 0; # Keep track of how many links we added
