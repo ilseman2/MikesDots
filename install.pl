@@ -44,7 +44,7 @@ my %links = (
     xinitrc => '.xinitrc',
     xmonad => '.xmonad',
     apvlvrc => '.apvlvrc',
-    maude_linux => 'maude-linux',
+#    maude_linux => 'maude-linux',
     emacs => 'emacs',
     dotemacs => '.emacs',
     nethackrc => '.nethackrc',
@@ -94,6 +94,9 @@ my %links = (
     lock       => 'bin/lock',
     wpa        => 'bin/wpa',
     trackpad_toggle => 'bin/trackpad-toggle',
+    rec        => 'bin/rec',
+    ptd        => 'bin/ptd',
+    backup     => 'bin/backup',
     );
 
 my $i = 0; # Keep track of how many links we added

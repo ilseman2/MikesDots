@@ -1,4 +1,4 @@
 #!/bin/zsh
 # Print top directory
-pwd | sed "s/.*\/\([^\/]*$\)/\1/"
+basename `pwd`
 
