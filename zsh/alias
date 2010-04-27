@@ -46,7 +46,7 @@ alias grep="grep -d skip --color=auto -n"
 # wget current directory, where all downloads are in a .wget file
 alias wga="wget -c -i .wget"
 
-alias wpa="sudo ~/wpa"
+alias wpa="sudo ~/bin/wpa"
 
 # My specific directory navigation/global aliases
 alias -g dnd="/home/ilseman2/Dnd/"

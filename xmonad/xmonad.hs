@@ -9,6 +9,7 @@ import XMonad.Hooks.ManageDocks
 
 import XMonad.Layout.ResizableTile -- resize non-master windows too
 
+import Data.Char
 
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeysP)
@@ -43,7 +44,7 @@ main = do
 			, logHook    = dynamicLogWithPP $ xmobarPP
 				{ ppOutput = hPutStrLn xmproc
                                 , ppExtras = [ battery ]
-				, ppTitle  = xmobarColor "#8AE234" ""
+				, ppTitle  = shorten 80 . filter (\c -> ord c < 128) --- xmobarColor "#8AE234" ""
 				}
                         , terminal = "urxvtc"
                         , modMask = mod4Mask
