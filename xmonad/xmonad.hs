@@ -44,7 +44,7 @@ main = do
 			, logHook    = dynamicLogWithPP $ xmobarPP
 				{ ppOutput = hPutStrLn xmproc
                                 , ppExtras = [ battery ]
-				, ppTitle  = shorten 80 . filter (\c -> ord c < 128) --- xmobarColor "#8AE234" ""
+				, ppTitle  = xmobarColor "#8AE234" "" . filter (\c -> ord c < 128) --- 
 				}
                         , terminal = "urxvtc"
                         , modMask = mod4Mask
