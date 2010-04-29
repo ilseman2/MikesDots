@@ -5,12 +5,11 @@
 (add-path "~/emacs/site-lisp")
 
 (load "custom.el")
-(load "libraries.el")
-(load "keybindings.el")
 (load "options.el")
-(load "mode-configs.el")
+(load "keybindings.el")
 
-;; Color Theme ;;
+
+;; Color Theme
 (color-theme-initialize)
 (color-theme-calm-forest)
 

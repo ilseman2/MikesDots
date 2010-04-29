@@ -52,3 +52,7 @@ Ignores CHAR at point."
 (defun word-count nil "Count words in buffer" (interactive)
   (shell-command-on-region (point-min) (point-max) "wc -w"))
 
+(defun linum-off ()
+  (unless (minibufferp)
+    (linum-mode 0)))
+
