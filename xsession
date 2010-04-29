@@ -14,5 +14,6 @@
 
 exec emacs --daemon &
 exec urxvtd -f &
+exec kmix &
 xmodmap .xmodmap
 exec ck-launch-session xmonad

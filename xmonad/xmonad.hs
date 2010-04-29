@@ -6,10 +6,12 @@ import XMonad.Layout.NoBorders(smartBorders)
 
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
 
 import XMonad.Layout.ResizableTile -- resize non-master windows too
 
 import Data.Char
+import Data.List
 
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeysP)
@@ -36,15 +38,31 @@ myLayoutHook = Full ||| tiled ||| Mirror tiled ||| Grid
 		-- Percent of screen to increment by when resizing panes
 		delta   = 3/100
 
+-- MyFloatsC and T are match-anywher
+myManageHook = composeAll . concat $
+               [ performInfixOn doFloat myFloatsC className
+               , performInfixOn doFloat myFloatsT title
+               , performInfixOn doCenterFloat myCenterFloatsC className
+               , performInfixOn doCenterFloat myCenterFloatsT title
+               , [ manageDocks ]
+               , [ scratchpadManageHook (W.RationalRect 0.25 0.25 0.5 0.5) ]
+               ]
+  where myFloatsC = [ ]
+        myFloatsT = [ ]
+        myCenterFloatsC = [ ]
+        myCenterFloatsT = [ "NVidia" ]
+        performInfixOn action list matchType =
+          [ fmap ( c `isInfixOf`) matchType --> action | c <- list ]
+
 main = do
 	xmproc <- spawnPipe "xmobar"
 	xmonad $ defaultConfig
-			{ manageHook = manageDocks <+> scratchpadManageHook (W.RationalRect 0.25 0.25 0.5 0.5) <+> manageHook defaultConfig
+			{ manageHook = myManageHook <+> manageHook defaultConfig
 			, layoutHook = avoidStruts  $  smartBorders $ myLayoutHook
 			, logHook    = dynamicLogWithPP $ xmobarPP
 				{ ppOutput = hPutStrLn xmproc
                                 , ppExtras = [ battery ]
-				, ppTitle  = xmobarColor "#8AE234" "" . filter (\c -> ord c < 128) --- 
+				, ppTitle  = xmobarColor "#8AE234" "" . filter (\c -> ord c < 128) ---
 				}
                         , terminal = "urxvtc"
                         , modMask = mod4Mask
