@@ -1,0 +1,8 @@
+#!/bin/zsh
+TODO="Dnd Documents Go GuoJuan MikesDots"
+for f in TODO
+do
+  OUT=~/backups/$f.bak    
+  rsync -h -t --progress --inplace -r $f $OUT
+done
+rsync -h -t --progress --inplace -e ssh -r ~/backups k.cs.uiuc.edu:~/backups

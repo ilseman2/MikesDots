@@ -38,19 +38,25 @@ unless(eval {symlink('', ''); 1;}) {
 
 my %links = (
     # Mine
-#    kgs => 'bin/kgs',
     xmodmap => '.xmodmap',
     xsession => '.xsession',
     xinitrc => '.xinitrc',
     xmonad => '.xmonad',
     apvlvrc => '.apvlvrc',
-#    maude_linux => 'maude-linux',
     emacs => 'emacs',
     dotemacs => '.emacs',
     nethackrc => '.nethackrc',
     aspellenprepl => ".aspell.en.prepl",
     aspellenpws => ".aspell.en.pws",
+    xvidcaprc => ".xvidcaprc",
 
+    wpa        => 'bin/wpa',
+    trackpad_toggle => 'bin/trackpad-toggle',
+    rec        => 'bin/rec',
+    ptd        => 'bin/ptd',
+    backup     => 'bin/backup',
+    mk_backups     => 'bin/mk-backups',    
+    
     # Dave's
     screenrc   => '.screenrc',
     toprc      => '.toprc',
@@ -92,11 +98,6 @@ my %links = (
 
     caffeinate => 'bin/caffeinate',
     lock       => 'bin/lock',
-    wpa        => 'bin/wpa',
-    trackpad_toggle => 'bin/trackpad-toggle',
-    rec        => 'bin/rec',
-    ptd        => 'bin/ptd',
-    backup     => 'bin/backup',
     );
 
 my $i = 0; # Keep track of how many links we added

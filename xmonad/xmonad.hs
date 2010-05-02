@@ -45,7 +45,7 @@ myManageHook = composeAll . concat $
                , performInfixOn doCenterFloat myCenterFloatsC className
                , performInfixOn doCenterFloat myCenterFloatsT title
                , [ manageDocks ]
-               , [ scratchpadManageHook (W.RationalRect 0.25 0.25 0.5 0.5) ]
+               , [ scratchpadManageHook (W.RationalRect 0.2 0.2 0.6 0.6) ]
                ]
   where myFloatsC = [ ]
         myFloatsT = [ ]
