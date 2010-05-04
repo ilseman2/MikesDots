@@ -3,6 +3,12 @@
 # Trivial modifications: David Majnemer
 # vim:set nowrap:
 
+# Mine:
+  # Make sure sources are right - helpful when shell is run as a daemon
+  source /etc/profile
+
+# Original:  
+
 autoload compinit; compinit -d "${HOME}/.zsh/.zcompdump"
 
 autoload age
@@ -48,11 +54,18 @@ if [ -d "${HOME}/.zsh" ] ; then
 	done
 fi
 
-# Path
-export PATH="$PATH:$HOME/maude-linux/"
-###########export AWT_TOOLKIT=MToolkit
 
-export SVN_EDITOR="emacsclient -c -nw"
-export GIT_EDITOR="emacsclient -c -nw"
+# Mine: 
+  # Path
+  export PATH="$PATH:$HOME/maude-linux/"
 
-export  _JAVA_AWT_WM_NONREPARENTING=1
+  # Editors for Revision Control
+  export SVN_EDITOR="emacsclient -c -nw"
+  export GIT_EDITOR="emacsclient -c -nw"
+
+  # Fix much of xmonad's java problems
+  export  _JAVA_AWT_WM_NONREPARENTING=1
+
+  # Needed by javamoptestsuite
+  export INSTALL_PATH=/home/ilseman2/runtime-verification
+

@@ -51,7 +51,7 @@ alias wpa="sudo ~/bin/wpa"
 # My specific directory navigation/global aliases
 alias -g dnd="/home/ilseman2/Dnd/"
 alias -g sd="/home/ilseman2/Documents/my_dnd/char/sd/"
-alias -g ptltl="/home/ilseman2/FSL/projects/MOP/trunk/src/logicrepository/plugins/ptltl"
+alias -g mop="/home/ilseman2/FSL/projects/MOP/trunk/"
 
 
 # My program shortcuts
