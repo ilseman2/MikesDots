@@ -69,3 +69,5 @@ fi
   # Needed by javamoptestsuite
   export INSTALL_PATH=/home/ilseman2/runtime-verification
 
+  # Have qemu use esd, which works the best from what I've tried
+  export QEMU_AUDIO_DRV=esd

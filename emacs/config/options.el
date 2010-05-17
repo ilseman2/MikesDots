@@ -61,6 +61,9 @@
 ;; Yaml
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
+;; AspectJ
+(add-to-list 'auto-mode-alist '("\\.aj$" . java-mode))
+
 ;;; End Loads ;;;
 
 
