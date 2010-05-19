@@ -1,4 +1,4 @@
 #!/bin/zsh
 OUT=~/backups/$1.bak
-rsync -ah  --progress --inplace $1 $OUT
-rsync -ah  --progress --inplace -e ssh ~/backups k.cs.uiuc.edu:~/backups
+rsync -ahz  --progress --inplace $1 $OUT
+rsync -ahz  --progress --inplace -e ssh ~/backups k.cs.uiuc.edu:~/backups

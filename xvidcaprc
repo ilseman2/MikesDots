@@ -75,7 +75,7 @@ sf_video_cmd: ppm2mpeg.sh "${XVFILE}" ${XVFFRAME} ${XVLFRAME} ${XVWIDTH} ${XVHEI
 # file pattern
 # this defines the filetype to write via the extension provided
 # valid extensions are: pgm ppm png jpg jpeg avi mpeg mpg asf flv flv1 swf dv m1v vcd m2v svcd vob dvd mov qt 
-mf_file: AllAboutInvading-19-(3-3d).mpeg
+mf_file: LeaningAttack-02.mpeg
 # file format - use AUTO to select format through file extension
 # Otherwise specify one of the following: pgm, ppm, png, jpg, avi, divx, asf, flv1, swf, dv, mpeg, mpeg2, vob, mov
 mf_format: NONE
@@ -95,7 +95,7 @@ mf_max_frames: 0
 # number to start counting individual frames from (for future use)
 mf_start_no: 0
 # quality (JPEG/MPEG)
-mf_quality: 90
+mf_quality: 100
 # toggle audio capture (0/1)
 mf_audio: 1
 # sample rate for audio capture
