@@ -1,4 +1,9 @@
 #!/bin/bash
+
+# Wireless management script
+# Takes an argument, and looks for that file in /etc/wpa_confs
+# e.g. "wpa ui" calls wpa_supplicant looking at /etc/wpa_confs/ui for it's config file
+
 killall wpa_supplicant
 killall dhcpcd
 ifconfig wlan0 down

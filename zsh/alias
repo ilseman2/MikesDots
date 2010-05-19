@@ -33,7 +33,7 @@ alias semacs="sudo emacs -nw"
 
 alias rlwrap="rlwrap -a -pcyan"
 
-alias rsync="rsync -ah --progress --inplace -e ssh"
+alias rsync="rsync -azh --progress --inplace -e ssh"
 alias resource="source ~/.zshrc"
 alias wget="wget -c "
 alias clear-hist="echo "" > ~/.zsh/.history"
