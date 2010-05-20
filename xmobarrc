@@ -14,7 +14,7 @@ Config { font = "-*-terminus-*-r-*-*-12-*-*-*-*-*-*-*"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{%cpu% | %memory% | %swap% |  %wlan0%      %KCMI%  <fc=#C4A000>%date%</fc>"
+       , template = "%StdinReader% }{%cpu% | %memory% | %swap% |  %wlan0%      %KCMI%  <fc=#C4A000>%date%</fc>     "
        }
 
 

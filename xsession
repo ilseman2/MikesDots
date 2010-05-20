@@ -7,7 +7,8 @@
 # kpackagekit-smart-icon &
 
 # Uncomment to use trayer, which is a dock on xmobar for applets and such.
-#trayer --edge top --align right --height 1 --width 5 --SetDockType true --SetPartialStrut true --expand true --tint 0x555555 --alpha 225 &
+# Not having the "SetPartialStrut true" option means that xmobar wont expand itself to be as tall as trayer
+trayer --edge top --align right --height 0 --width 4 --SetDockType true --transparent true --expand true --alpha 223
 
 
 # Uncomment to enable networkmanager applet

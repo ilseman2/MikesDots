@@ -62,9 +62,11 @@ alias wpa="sudo ~/bin/wpa"
 ### Below are more system/setup specific configs:
 
 # My specific directory navigation/global aliases
-alias -g dnd="/home/ilseman2/Dnd/"
-alias -g sd="/home/ilseman2/Documents/my_dnd/char/sd/"
-alias -g mop="/home/ilseman2/FSL/projects/MOP/trunk/"
+alias dnd="cd /home/ilseman2/Dnd/"
+alias sd="cd /home/ilseman2/Documents/my_dnd/char/sd/"
+alias mop="cd /home/ilseman2/FSL/projects/MOP/trunk/"
+alias macer="cd /home/ilseman2/runtime-verification/src/macer"
+alias macer2="cd /home/ilseman2/runtime-verification/src/macer2"
 
 # My program shortcuts
 alias drago="wine ~/.wine/drive_c/Program\ Files/Drago/Drago.exe"
