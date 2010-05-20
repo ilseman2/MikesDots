@@ -64,6 +64,9 @@
 ;; AspectJ
 (add-to-list 'auto-mode-alist '("\\.aj$" . java-mode))
 
+;; JavaMOP
+(add-to-list 'auto-mode-alist '("\\.mop$" . java-mode))
+
 ;;; End Loads ;;;
 
 

@@ -19,23 +19,31 @@ alias ll="ls -l"
 alias lla="ls -al"
 alias lal="ls -al"
 
-alias c="cd "
-alias c..="cd .."
+# alias c="cd "
+# alias c..="cd .."
 
 alias h="htop"
 alias ef="ps -ef"
 alias dus="du -sc ./*"
 
+# I prefer to run emacs as a client/daemon
 alias emacsd="command emacs --daemon"
 alias emacs="emacsclient -c "
 alias temacs="emacsclient -c -nw"
 alias semacs="sudo emacs -nw"
 
+# Always have rlwrap do readline, and prompt is cyan
 alias rlwrap="rlwrap -a -pcyan"
 
+# Have rsync use all the options one should desire
 alias rsync="rsync -azh --progress --inplace -e ssh"
+
+# Reload configs
 alias resource="source ~/.zshrc"
+
+# Have wget automatically continue
 alias wget="wget -c "
+
 alias clear-hist="echo "" > ~/.zsh/.history"
 
 alias ocaml="rlwrap ocaml"
@@ -44,21 +52,22 @@ alias bc="rlwrap -S \"bc: \" bc -l"
 
 alias grep="grep -d skip --color=auto -n"
 
-
 # wget current directory, where all downloads are in a .wget file
 alias wga="wget -c -i .wget"
 
+# My wireless management script
 alias wpa="sudo ~/bin/wpa"
+
+
+### Below are more system/setup specific configs:
 
 # My specific directory navigation/global aliases
 alias -g dnd="/home/ilseman2/Dnd/"
 alias -g sd="/home/ilseman2/Documents/my_dnd/char/sd/"
 alias -g mop="/home/ilseman2/FSL/projects/MOP/trunk/"
 
-
 # My program shortcuts
 alias drago="wine ~/.wine/drive_c/Program\ Files/Drago/Drago.exe"
-
 
 # Arch-specific aliases
 alias pacs="sudo pacman -S"

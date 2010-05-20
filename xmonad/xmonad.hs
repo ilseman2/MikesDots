@@ -30,7 +30,7 @@ myLayoutHook = Full ||| tiled ||| Mirror tiled ||| Grid
   where
     -- default tiling algorithm partitions the screen into two panes
     tiled   = Tall nmaster delta ratio
-              
+
     -- The default number of windows in the master pane
     nmaster = 1
 
@@ -49,6 +49,7 @@ myManageHook = composeAll . concat $
                , [ manageDocks ]
                , [ scratchpadManageHook (W.RationalRect 0.1 0.1 0.8 0.8) ]
                ]
+  --- Windows to always float, C denotes by class, T by title
   where myFloatsC = [ ]
         myFloatsT = [ ]
         myCenterFloatsC = [ ]
@@ -66,7 +67,7 @@ main = do
                           , ppExtras = [ battery ]
                           , ppTitle  = xmobarColor "#8AE234" "" . filter (\c -> ord c < 128) ---
                           }
-           , startupHook = setWMName "LG3D"
+           , startupHook = setWMName "LG3D" --- Trick Java into working
            , terminal = "urxvtc"
            , modMask = mod4Mask
            }

@@ -59,7 +59,8 @@ fi
   # Path
   export PATH="$PATH:$HOME/maude-linux/"
 
-  # Editors for Revision Control
+  # Editors, for shell and revision control systems
+  export EDITOR="emacsclient -c -nw"
   export SVN_EDITOR="emacsclient -c -nw"
   export GIT_EDITOR="emacsclient -c -nw"
 
