@@ -8,7 +8,7 @@
 
 # Uncomment to use trayer, which is a dock on xmobar for applets and such.
 # Not having the "SetPartialStrut true" option means that xmobar wont expand itself to be as tall as trayer
-trayer --edge top --align right --height 0 --width 4 --SetDockType true --transparent true --expand true --alpha 223
+trayer --edge top --align right --height 0 --width 4 --SetDockType true --transparent true --expand true --alpha 223 &
 
 
 # Uncomment to enable networkmanager applet
