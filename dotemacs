@@ -33,7 +33,11 @@
   ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "gray12" :foreground "green" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal :foundry "xos4" :family "Terminus"))))
  '(mode-line ((t (:inherit mode-line :background "grey20" :foreground "grey60"))))
- '(mode-line-inactive ((t (:inherit mode-line :background "grey5" :foreground "grey55" :weight light)))))
+ '(mode-line-inactive ((t (:inherit mode-line :background "grey5" :foreground "grey55" :weight light))))
+ '(fringe ((((class color) (background dark)) (:background "grey3"))))
+ '(mode-line-inactive ((t (:inherit mode-line :background "grey5" :foreground "grey55" :weight light))))
+ '(vertical-border ((t (:foreground "grey30")))))
+
 
 
 ;;; Auto-saved macros ( to the end of the file) ;;; 

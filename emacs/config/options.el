@@ -67,6 +67,10 @@
 ;; JavaMOP
 (add-to-list 'auto-mode-alist '("\\.mop$" . java-mode))
 
+;; .emacs
+(add-to-list 'auto-mode-alist '("dotemacs$" . lisp-mode))
+
+
 ;;; End Loads ;;;
 
 
