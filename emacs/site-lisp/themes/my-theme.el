@@ -6,7 +6,7 @@
   (interactive)
   (color-theme-install
    '(my-theme
-     ((background-color . "gray5")
+     ((background-color . "gray7")
       (background-mode . dark)
       (border-color . "black")
       (cursor-color . "orange")

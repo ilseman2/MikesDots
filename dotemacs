@@ -9,6 +9,9 @@
                :foundry "xos4" :family "Terminus"))))
 )
 
+;; Note that for some reason the above has to be done before my-theme, to fix some font stuff
+
+
 (defun add-path (p)
   (setq load-path (cons p load-path)))
 
@@ -39,6 +42,5 @@
  '(preview-default-preamble (quote ("\\RequirePackage[" ("," . preview-default-option-list) "]{preview}[2004/11/05]" "\\PreviewEnvironment{itemize}" "\\PreviewEnvironment{verbatim}" "\\PreviewEnvironment{ocaml}" "\\PreviewEnvironment{tikzpicture}" "\\PreviewMacro[!]{\\n}" "\\PreviewMacro[!]{\\citet}" "\\PreviewMacro[!]{\\citep}")))
  '(show-paren-mode t))
 
-
-
-;;; Auto-saved macros ( to the end of the file) ;;; 
+;;; Auto-saved macros ( to the end of the file) ;;;
+(put 'downcase-region 'disabled nil)
