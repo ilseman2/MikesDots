@@ -1,7 +1,8 @@
 #! /usr/bin/env perl
 
 # install.pl
-# script to create symlinks from the checkout of davesdots to the home directory
+# script to create symlinks from the checkout of MikesDots to the home directory
+# Mostly taken, like the majority of MikesDots from davesdots
 
 use strict;
 use warnings;
