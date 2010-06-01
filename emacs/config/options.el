@@ -17,6 +17,7 @@
 (require 'dot-mode)
 (require 'color-theme)
 (require 'scala-mode-auto)
+(require 'iedit)
 
 (load "tramp")
 (load "vip")

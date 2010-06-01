@@ -40,3 +40,5 @@
 ;;(global-set-key "\C-0" 'scroll-down)
 (global-set-key [(meta down)] 'end-of-buffer)
 (global-set-key [(meta up)] 'beginning-of-buffer)
+
+(define-key global-map (kbd "C-;") 'iedit-mode) ;; Pretty cool, replace all at once
