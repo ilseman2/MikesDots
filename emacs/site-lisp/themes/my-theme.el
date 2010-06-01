@@ -1,16 +1,50 @@
 (eval-when-compile
   (require 'color-theme))
 
+;; Definitions from zenburn:
+(defvar zenburn-fg "#dcdccc")
+
+(defvar zenburn-bg-1 "#2b2b2b")
+(defvar zenburn-bg "#3f3f3f")
+(defvar zenburn-bg+1 "#4f4f4f")
+(defvar zenburn-bg+2 "#5f5f5f")
+(defvar zenburn-red+1 "#dca3a3")
+(defvar zenburn-red "#cc9393")
+(defvar zenburn-red-1 "#bc8383")
+(defvar zenburn-red-2 "#ac7373")
+(defvar zenburn-red-3 "#9c6363")
+(defvar zenburn-red-4 "#8c5353")
+(defvar zenburn-orange "#dfaf8f")
+(defvar zenburn-yellow "#f0dfaf")
+(defvar zenburn-yellow-1 "#e0cf9f")
+(defvar zenburn-yellow-2 "#d0bf8f")
+(defvar zenburn-green-1 "#5f7f5f")
+(defvar zenburn-green "#7f9f7f")
+(defvar zenburn-green+1 "#8fb28f")
+(defvar zenburn-green+2 "#9fc59f")
+(defvar zenburn-green+3 "#afd8af")
+(defvar zenburn-green+4 "#bfebbf")
+(defvar zenburn-cyan "#93e0e3")
+(defvar zenburn-blue+1 "#94bff3")
+(defvar zenburn-blue "#8cd0d3")
+(defvar zenburn-blue-1 "#7cb8bb")
+(defvar zenburn-blue-2 "#6ca0a3")
+(defvar zenburn-blue-3 "#5c888b")
+(defvar zenburn-blue-4 "#4c7073")
+(defvar zenburn-blue-5 "#366060")
+(defvar zenburn-magenta "#dc8cc3")
+
+
 (defun my-theme ()
   "Color theme by Michael Ilseman, based on Artur Hefczyc's calm forest."
   (interactive)
   (color-theme-install
-   '(my-theme
-     ((background-color . "gray7")
+   `(my-theme
+     ((background-color . ,zenburn-bg-1)
       (background-mode . dark)
-      (border-color . "black")
+      (border-color . ,zenburn-bg)
       (cursor-color . "orange")
-      (foreground-color . "green2")
+      (foreground-color . ,zenburn-fg)
       (mouse-color . "yellow"))
      ((help-highlight-face . underline)
       (list-matching-lines-face . bold)

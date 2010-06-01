@@ -47,6 +47,7 @@
 (load "~/emacs/site-lisp/haskell-mode-2.4/haskell-site-file")
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+(add-hook 'haskell-mode-hook 'linum-mode)
 (add-hook 'haskell-mode-hook ( lambda () (global-unset-key "\C-c \C-g")))
 (add-hook 'haskell-mode-hook ( lambda () (local-unset-key "\C-c \C-g")))
 (add-hook 'haskell-mode-hook ( lambda () (setq haskell-indent-offset 2)))
@@ -93,6 +94,15 @@
 (add-hook 'scala-mode-hook
           '(lambda ()
              (yas/minor-mode-on)))
+
+
+;; Sml Modeline
+(if (require 'sml-modeline nil 'noerror)    ;; use sml-modeline if available
+  (progn
+    (sml-modeline-mode 1)                   ;; show buffer pos in the mode line
+    (scroll-bar-mode -1))                   ;; turn off the scrollbar
+  (scroll-bar-mode 1)                       ;; otherwise, show a scrollbar...
+  (set-scroll-bar-mode 'right))             ;; ... on the right
 
 
 ;;; End Mode configs ;;;
