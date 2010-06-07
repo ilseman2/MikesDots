@@ -57,6 +57,7 @@ my %links = (
     ptd        => 'bin/ptd',
     backup     => 'bin/backup',
     mk_backups     => 'bin/mk-backups',    
+    myimport => 'bin/myimport',
     
     # Dave's
     screenrc   => '.screenrc',

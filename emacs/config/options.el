@@ -19,6 +19,8 @@
 (require 'scala-mode-auto)
 (require 'iedit)
 
+(load "evimodeline.el")
+
 (load "tramp")
 (load "vip")
 ;(require 'viper)
@@ -31,6 +33,9 @@
 ;; Maude
 (setq maude-path "/home/ilseman2/maude-linux/maude")
 (load-library "maude-mode")
+
+;; Vim mode-line
+(add-hook 'find-file-hook 'evimodeline-find-file-hook)
 
 
 (load-library "tuareg")

@@ -1,0 +1,5 @@
+#/usr/bin/env zsh
+
+# $1 is the filename to save as (without the .png extension)
+
+import ~/pics/screengrabs/$1.png

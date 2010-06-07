@@ -237,7 +237,7 @@ static char *gnus-pointer[] = {
 ;;old:     `(default ((t (:background ,zenburn-bg :foreground ,zenburn-fg))))
      '(default ((t (:inherit nil :stipple nil :background "gray12" :foreground "green"
                     :inverse-video nil :box nil :strike-through nil :overline nil
-                    :underline nil :slant normal :weight normal :height 100
+                    :underline nil :slant normal :weight normal :height 50
                     :width normal :foundry "xos4" :family "Terminus"))))
      '(fixed-pitch ((t (:weight bold))))
      '(italic ((t (:slant italic))))
