@@ -47,7 +47,7 @@ myManageHook = composeAll . concat $
                , performInfixOn doCenterFloat myCenterFloatsC className
                , performInfixOn doCenterFloat myCenterFloatsT title
                , [ manageDocks ]
-               , [ scratchpadManageHook (W.RationalRect 0.1 0.1 0.8 0.8) ]
+               , [ scratchpadManageHook (W.RationalRect 0 0.015 1 0.985) ]
                ]
   --- Windows to always float, C denotes by class, T by title
   where myFloatsC = [ ]
@@ -72,7 +72,7 @@ main = do
            , modMask = mod4Mask
            }
            `additionalKeysP`
-           [ ("M-p", shellPrompt defaultXPConfig { position = Top })
+           [ ("M-p", shellPrompt defaultXPConfig { position = Bottom })
            , ("M-S-a", windowPromptGoto defaultXPConfig { position = Top })
            , ("M-a", windowPromptBring defaultXPConfig { position = Top })
            , ("M-x", sendMessage ToggleStruts)
