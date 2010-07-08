@@ -47,7 +47,7 @@ myManageHook = composeAll . concat $
                , performInfixOn doCenterFloat myCenterFloatsC className
                , performInfixOn doCenterFloat myCenterFloatsT title
                , [ manageDocks ]
-               , [ scratchpadManageHook (W.RationalRect 0 0.015 1 0.985) ]
+               , [ scratchpadManageHook (W.RationalRect 0 0.016 1 0.984) ]
                ]
   --- Windows to always float, C denotes by class, T by title
   where myFloatsC = [ ]
@@ -79,7 +79,7 @@ main = do
            , ("M-S-l", spawn "~/bin/lock")
 --           , ("M-e", spawn "emacsclient -c")
            , ("M-f", spawn "firefox")
-           , ("M-r", spawn "urxvtc")
+--           , ("M-r", spawn "urxvtc")
            , ("M-S-t", spawn "trackpad-toggle") -- Turn on/off trackpad
            , ("M-g", scratchpadSpawnActionTerminal "urxvtc")
            ]

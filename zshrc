@@ -7,7 +7,7 @@
   # Make sure sources are right - helpful when shell is run as a daemon
   source /etc/profile
 
-# Original:  
+# Original:
 
 autoload compinit; compinit -d "${HOME}/.zsh/.zcompdump"
 
@@ -55,7 +55,7 @@ if [ -d "${HOME}/.zsh" ] ; then
 fi
 
 
-# Mine: 
+# Mine:
   # Path
   export PATH="$PATH:$HOME/maude-linux/"
 
@@ -72,3 +72,5 @@ fi
 
   # Have qemu use esd, which works the best from what I've tried
   export QEMU_AUDIO_DRV=esd
+
+  export TIME='{Real: %E, User: %U, System: %S, CPU: %P}'
