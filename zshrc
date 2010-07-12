@@ -74,3 +74,6 @@ fi
   export QEMU_AUDIO_DRV=esd
 
   export TIME='{Real: %E, User: %U, System: %S, CPU: %P}'
+
+  # Foreground $1, or %- by default
+  function fgg() { if [[ -n $1 ]] ; then fg %$1 ; else fg %- ; fi}

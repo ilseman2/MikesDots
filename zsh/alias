@@ -58,6 +58,9 @@ alias wga="wget -c -i .wget"
 # My wireless management script
 alias wpa="sudo ~/bin/wpa"
 
+# Push and pop, for when you want to cd and come back
+alias pu=pushd
+alias po=popd
 
 ### Below are more system/setup specific configs:
 

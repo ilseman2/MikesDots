@@ -142,3 +142,6 @@
 (add-hook 'text-mode-hook 'flyspell-mode)        ; Auto-flyspell for text mode
 (add-to-list 'backup-directory-alist             ; Move all those NAME~ files to ~/backups
              '("." . "~/.backups/"))
+
+; Auto-delete trailing whitespace on save
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
