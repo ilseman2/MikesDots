@@ -5,7 +5,7 @@
 # e.g. "wpa ui" calls wpa_supplicant looking at /etc/wpa_confs/ui for it's config file
 
 killall wpa_supplicant
-killall dhcpcd
+dhcpcd -k wlan0
 ifconfig wlan0 down
 ifconfig wlan0 up
 wpa_supplicant -B -Dwext -i wlan0 -c /etc/wpa_confs/$1

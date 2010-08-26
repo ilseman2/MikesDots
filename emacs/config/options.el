@@ -145,3 +145,10 @@
 
 ; Auto-delete trailing whitespace on save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+; Smart tab
+(require 'smart-tab)
+
+; Google Maps
+(add-path "~/emacs/site-lisp/google-maps")
+(require 'google-maps)

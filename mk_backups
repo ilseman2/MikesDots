@@ -1,8 +1,7 @@
 #!/bin/zsh
-TODO="Dnd Documents Go GuoJuan MikesDots"
-for f in `echo $TODO | grep -o "\w*"`
-do
-  OUT=~/backups/$f.bak    
-  rsync -ahz --progress --inplace $f $OUT
+TODO=(Documents Go GuoJuan)
+for f in $TODO; do
+    OUT=~/backups/$f.bak
+    rsync -ahz --progress --inplace $f/ $OUT
 done
-rsync -ahz --progress --inplace -e ssh ~/backups k.cs.uiuc.edu:~/backups
+rsync -ahz --progress --inplace -e ssh ~/backups k.cs.uiuc.edu:~/

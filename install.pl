@@ -52,13 +52,14 @@ my %links = (
     xvidcaprc => ".xvidcaprc",
 
     wpa        => 'bin/wpa',
+    wep_ssid        => 'bin/wep-ssid',
     trackpad_toggle => 'bin/trackpad-toggle',
     rec        => 'bin/rec',
     ptd        => 'bin/ptd',
     backup     => 'bin/backup',
-    mk_backups     => 'bin/mk-backups',    
+    mk_backups     => 'bin/mk-backups',
     myimport => 'bin/myimport',
-    
+
     # Dave's
     screenrc   => '.screenrc',
     toprc      => '.toprc',
