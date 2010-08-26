@@ -1,0 +1,8 @@
+sudo dhcpcd -k wlan0
+sudo dhcpcd -x wlan0
+sudo killall wpa_supplicant
+sudo ifconfig wlan0 down
+sudo ifconfig wlan0 up
+sudo iwconfig wlan0 essid "$1"
+sleep 5
+sudo dhcpcd wlan0
