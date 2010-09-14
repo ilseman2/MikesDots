@@ -25,6 +25,12 @@
 (load "vip")
 ;(require 'viper)
 
+;; Use actual tabs (grrr) for java mode
+(add-hook 'java-mode-hook
+          (lambda()
+            (setq-default c-basic-offset 8 tab-width 8 indent-tabs-mode 't)))
+
+
 (add-path "~/emacs/site-lisp/yasnippet-0.6.1c")
 (require 'yasnippet)
 (yas/initialize)
@@ -137,8 +143,8 @@
 
 (setq ispell-program-name "aspell")   ; Use aspell instead of ispell
 
-; 2 Space Tabs
-(setq c-basic-offset 2 tab-width 2 indent-tabs-mode t)
+; 2 Space Tabs, by default (unless otherwise defined)
+(setq-default c-basic-offset 2 tab-width 2 indent-tabs-mode 0)
 (add-hook 'text-mode-hook 'flyspell-mode)        ; Auto-flyspell for text mode
 (add-to-list 'backup-directory-alist             ; Move all those NAME~ files to ~/backups
              '("." . "~/.backups/"))

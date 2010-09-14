@@ -2,6 +2,7 @@
 TODO=(Documents Go GuoJuan)
 for f in $TODO; do
     OUT=~/backups/$f.bak
+    mkdir -p $OUT
     rsync -ahz --progress --inplace $f/ $OUT
 done
 rsync -ahz --progress --inplace -e ssh ~/backups k.cs.uiuc.edu:~/

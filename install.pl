@@ -59,6 +59,7 @@ my %links = (
     backup     => 'bin/backup',
     mk_backups     => 'bin/mk-backups',
     myimport => 'bin/myimport',
+		sgf2pdf_children => 'bin/sgf2pdf-children',
 
     # Dave's
     screenrc   => '.screenrc',

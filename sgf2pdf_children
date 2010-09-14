@@ -1,0 +1,25 @@
+#!/usr/bin/env zsh
+
+# Script to go into each child directory (only 1-deep for now), convert
+# each .sgf file into a .pdf file (50 moves per diagram), then go out and
+# concatenate all the pdfs into one pdf at the top most directory
+
+# Delete old combined pdf
+rm "combined.pdf"
+
+# Convert all the .sgf files in the child directories (1-deep) into pdfs
+for d in *; do
+		echo "Entering $d"
+		pushd "$d"
+		for s in *.sgf; do
+				echo "\tConverting $s[0,-5]"
+				rm "$s[0,-5].pdf" 2&> /dev/null
+				sgf2dg -convert PDF $s 2&> /dev/null
+		done
+		popd
+done
+
+# Combine all into one pdf at the topmost directory
+echo "Combining pdfs"
+gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=combined.pdf -dBATCH **/*.pdf > /dev/null
+echo "Done"

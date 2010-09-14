@@ -46,3 +46,9 @@
 
 ;;; Auto-saved macros ( to the end of the file) ;;;
 (put 'downcase-region 'disabled nil)
+
+;; Display time in the mode line
+;; Put this line last to prove (by the time in the mode line)
+;; that the .emacs loaded without error to this point.
+(setq display-time-day-and-date t )
+(display-time)
