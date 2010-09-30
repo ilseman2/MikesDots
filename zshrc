@@ -59,6 +59,10 @@ fi
   # Path
   export PATH="$PATH:$HOME/maude-linux/"
 
+  # Perl complains constantly unless I do this:
+  export LANGUAGE=en_US
+  export LC_ALL=en_US
+
   # Editors, for shell and revision control systems
   export EDITOR="emacsclient -c -nw"
   export SVN_EDITOR="emacsclient -c -nw"

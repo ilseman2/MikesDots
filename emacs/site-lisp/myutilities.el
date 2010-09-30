@@ -1,7 +1,7 @@
 ( defun spacey-parenthesis ( )
   "Go through and add spaces before and after parenthesis, to make some stuff
 pretty. May have to run a couple of times for parens that are right next to each
-other"   
+other"
   ( interactive )
   ( save-excursion
     ( beginning-of-buffer )
@@ -56,3 +56,9 @@ Ignores CHAR at point."
   (unless (minibufferp)
     (linum-mode 0)))
 
+(defun align-repeat (start end regexp)
+  "Repeat alignment with respect to
+   the given regular expression."
+  (interactive "r\nsAlign regexp: ")
+  (align-regexp start end
+      (concat "\\(\\s-*\\)" regexp) 1 1 t))

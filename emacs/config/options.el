@@ -122,31 +122,31 @@
 
 ;;; Misc Options ;;;
 
-(setq show-trailing-whitespace 1)                ; Highlight trailing whitespace
-(ido-mode t)                                     ; Interactive Do, for opening files and switching buffers
-;(iswitchb-mode 1)                                ; Interactive buffer switching, don't use with ido
-(tool-bar-mode -1)                               ; Remove the entirely useless tool-bar
-(menu-bar-mode -1)                               ; Hide menu
-(show-paren-mode 1)                              ; Show Paren-matching
-;(global-dot-mode 1)                              ; C-. to redo
-(transient-mark-mode 1)                          ; Show Highlight-region
-(column-number-mode 1)                           ; Show column number on mode bar
-(setq echo-keystrokes 0.1)                       ; Quickly show key pressed
-(setq-default indent-tabs-mode nil)              ; Use spaces instead of tabs
-(setq inhibit-splash-screen t)                   ; I hate the splash screen
-(scroll-bar-mode -1)                             ; I hate the scroll bar
-(line-number-mode 1)                             ; Show line number on mode-bar
-(blink-cursor-mode 1)                            ; I like blink
-(global-linum-mode 0)                            ; Have line numbers on right hand side for all buffers by default
-(midnight-delay-set 'midnight-delay "4:30am")    ; Performs midnight mode at 4:30am, namely clean-buffer-list
-(setq clean-buffer-list-delay-special (* 1 60))  ; Clean special buffers
+(setq show-trailing-whitespace 1)               ;; Highlight trailing whitespace
+(ido-mode t)                                    ;; Interactive Do, for opening files and switching buffers
+;(iswitchb-mode 1)                              ;; Interactive buffer switching, don't use with ido
+(tool-bar-mode -1)                              ;; Remove the entirely useless tool-bar
+(menu-bar-mode -1)                              ;; Hide menu
+(show-paren-mode 1)                             ;; Show Paren-matching
+;(global-dot-mode 1)                            ;; C-. to redo
+(transient-mark-mode 1)                         ;; Show Highlight-region
+(column-number-mode 1)                          ;; Show column number on mode bar
+(setq echo-keystrokes 0.1)                      ;; Quickly show key pressed
+(setq-default indent-tabs-mode nil)             ;; Use spaces instead of tabs
+(setq inhibit-splash-screen t)                  ;; I hate the splash screen
+(scroll-bar-mode -1)                            ;; I hate the scroll bar
+(line-number-mode 1)                            ;; Show line number on mode-bar
+(blink-cursor-mode 1)                           ;; I like blink
+(global-linum-mode 0)                           ;; Have line numbers on right hand side for all buffers by default
+(midnight-delay-set 'midnight-delay "4:30am")   ;; Performs midnight mode at 4:30am, namely clean-buffer-list
+(setq clean-buffer-list-delay-special (* 1 60)) ;; Clean special buffers
 
 (setq ispell-program-name "aspell")   ; Use aspell instead of ispell
 
 ; 2 Space Tabs, by default (unless otherwise defined)
-(setq-default c-basic-offset 2 tab-width 2 indent-tabs-mode 0)
-(add-hook 'text-mode-hook 'flyspell-mode)        ; Auto-flyspell for text mode
-(add-to-list 'backup-directory-alist             ; Move all those NAME~ files to ~/backups
+(setq-default c-basic-offset 2 tab-width 2 indent-tabs-mode nil)
+(add-hook 'text-mode-hook 'flyspell-mode)        ;; Auto-flyspell for text mode
+(add-to-list 'backup-directory-alist             ;; Move all those NAME~ files to ~/.backups
              '("." . "~/.backups/"))
 
 ; Auto-delete trailing whitespace on save

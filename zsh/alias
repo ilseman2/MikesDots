@@ -72,7 +72,7 @@ alias macer="cd /home/ilseman2/runtime-verification/examples/javamop/macer"
 alias macer2="cd /home/ilseman2/runtime-verification/examples/javamop/macer2"
 
 # My program shortcuts
-alias drago="wine ~/.wine/drive_c/Program\ Files/Drago/Drago.exe"
+#alias drago="wine ~/.wine/drive_c/Program\ Files/Drago/Drago.exe"
 
 # Arch-specific aliases
 alias pacs="sudo pacman -S"
