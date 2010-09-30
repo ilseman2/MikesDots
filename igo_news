@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+
+# Backup igo-kisen.hp.infoseek.co.jp locally. Note that this spawns wget in the
+# background, which you will have to explicitly kill if/when you exit this script
+
+# Go into ~/igo-news
+mkdir -p ~/igo-news
+cd ~/igo-news
+
+# Recursively grab and update a local copy of http://igo-kisen.hp.infoseek.co.jp
+wget -r -N http://igo-kisen.hp.infoseek.co.jp/ -o /tmp/wgettmp &
+
+# Provide a small amount of feedback to the user
+watch -n 0.5 "cat /tmp/wgettmp | grep \"\-\-....\-..\-.. ..\:..\:..\-\-  http\://igo-kisen.hp.infoseek.co.jp/\(.*\)\" | sed -s \"s/.*infoseek\.co\.jp\/\(.*\)/\1/\" | tail -n 50"
