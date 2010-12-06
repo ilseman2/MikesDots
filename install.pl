@@ -39,71 +39,71 @@ unless(eval {symlink('', ''); 1;}) {
 
 my %links = (
     # Mine
-    xmodmap => '.xmodmap',
-    xsession => '.xsession',
-    xinitrc => '.xinitrc',
-    xmonad => '.xmonad',
-    apvlvrc => '.apvlvrc',
-    emacs => 'emacs',
-    dotemacs => '.emacs',
-    nethackrc => '.nethackrc',
-    aspellenprepl => ".aspell.en.prepl",
-    aspellenpws => ".aspell.en.pws",
-    xvidcaprc => ".xvidcaprc",
+    xmodmap       => '.xmodmap'
+  , xsession      => '.xsession'
+  , xinitrc       => '.xinitrc'
+  , xmonad        => '.xmonad'
+  , apvlvrc       => '.apvlvrc'
+  , emacs         => 'emacs'
+  , dotemacs      => '.emacs'
+  , nethackrc     => '.nethackrc'
+  , aspellenprepl => ".aspell.en.prepl"
+  , aspellenpws   => ".aspell.en.pws"
+  , xvidcaprc     => ".xvidcaprc"
 
-    wpa        => 'bin/wpa',
-    wep_ssid        => 'bin/wep-ssid',
-    trackpad_toggle => 'bin/trackpad-toggle',
-    rec        => 'bin/rec',
-    ptd        => 'bin/ptd',
-    backup     => 'bin/backup',
-    mk_backups     => 'bin/mk-backups',
-    myimport => 'bin/myimport',
-		sgf2pdf_children => 'bin/sgf2pdf-children',
-		igo_news => 'bin/igo-news',
+  , wpa              => 'bin/wpa'
+  , wep_ssid         => 'bin/wep-ssid'
+  , trackpad_toggle  => 'bin/trackpad-toggle'
+  , tap_toggle       => 'bin/tap-toggle'
+  , rec              => 'bin/rec'
+  , ptd              => 'bin/ptd'
+  , backup           => 'bin/backup'
+  , mk_backups       => 'bin/mk-backups'
+  , myimport         => 'bin/myimport'
+
+  , gf2pdf_children => 'bin/sgf2pdf-children'
+  , go_news         => 'bin/igo-news'
 
 
     # Dave's
-    screenrc   => '.screenrc',
-    toprc      => '.toprc',
-    dircolors  => '.dircolors',
-    gdircolors => '.gdircolors',
-    lessfilter => '.lessfilter',
+  , screenrc   => '.screenrc'
+  , toprc      => '.toprc'
+  , dircolors  => '.dircolors'
+  , gdircolors => '.gdircolors'
+  , lessfilter => '.lessfilter'
 
-    vim      => '.vim',
-    vimrc    => '.vimrc',
-    gvimrc   => '.gvimrc',
+  , vim      => '.vim'
+  , vimrc    => '.vimrc'
+  , gvimrc   => '.gvimrc',
 
-    commonsh => '.commonsh',
+  , commonsh => '.commonsh'
+  , inputrc  => '.inputrc'
 
-    inputrc  => '.inputrc',
+  , bash          => '.bash'
+  , bashrc        => '.bashrc'
+  , bash_profile  => '.bash_profile'
 
-    bash          => '.bash',
-    bashrc        => '.bashrc',
-    bash_profile  => '.bash_profile',
-
-    zsh      => '.zsh',
-    zshrc    => '.zshrc',
-
-    ksh      => '.ksh',
-    kshrc    => '.kshrc',
+  , zsh      => '.zsh'
+  , zshrc    => '.zshrc'
+  , ksh      => '.ksh'
+  , kshrc    => '.kshrc'
 #    mkshrc   => '.mkshrc',
 
-    sh      => '.sh',
-    shinit  => '.shinit',
+  , sh      => '.sh'
+  , shinit  => '.shinit'
 
-    Xdefaults  => '.Xdefaults',
-    Xresources => '.Xresources',
+  , Xdefaults  => '.Xdefaults'
+  , Xresources => '.Xresources'
 
-    'uncrustify.cfg' => '.uncrustify.cfg',
-    'indent.pro'     => '.indent.pro',
+  , 'uncrustify.cfg' => '.uncrustify.cfg'
+  , 'indent.pro'     => '.indent.pro'
 
-    xmobarrc   => '.xmobarrc',
+  , xmobarrc   => '.xmobarrc'
 
-    gitconfig  => '.gitconfig',
+  , gitconfig  => '.gitconfig'
 
-    caffeinate => 'bin/caffeinate',
-    lock       => 'bin/lock',
+  , caffeinate => 'bin/caffeinate'
+  , lock       => 'bin/lock'
     );
 
 my $i = 0; # Keep track of how many links we added

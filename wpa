@@ -1,13 +1,26 @@
-#!/bin/bash
-
+#!/bin/zsh
 # Wireless management script
 # Takes an argument, and looks for that file in /etc/wpa_confs
 # e.g. "wpa ui" calls wpa_supplicant looking at /etc/wpa_confs/ui for it's config file
+
+USAGE="Usage:
+  wpa <conf_name> [<wait_time>]
+  where wait_time is the number of seconds to wait before spawning dhcpcd (default 5)"
+
+if [[ -z $1 ]]; then
+    echo $USAGE
+    exit 1
+fi
 
 killall wpa_supplicant
 dhcpcd -k wlan0
 ifconfig wlan0 down
 ifconfig wlan0 up
 wpa_supplicant -B -Dwext -i wlan0 -c /etc/wpa_confs/$1
-sleep 5
+if [[ -n $2 ]]; then
+    sleep $2
+else
+    sleep 5
+fi
+
 dhcpcd wlan0

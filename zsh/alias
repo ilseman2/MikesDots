@@ -78,4 +78,5 @@ alias macer2="cd /home/ilseman2/runtime-verification/examples/javamop/macer2"
 alias pacs="sudo pacman -S"
 alias pacr="sudo pacman -R"
 alias bbs="sudo bauerbill -S --aur"
+alias cs="sudo clyde -S"
 

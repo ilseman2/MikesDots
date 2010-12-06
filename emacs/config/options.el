@@ -26,9 +26,9 @@
 ;(require 'viper)
 
 ;; Use actual tabs (grrr) for java mode
-(add-hook 'java-mode-hook
-          (lambda()
-            (setq-default c-basic-offset 8 tab-width 8 indent-tabs-mode 't)))
+;; (add-hook 'java-mode-hook
+;;           (lambda()
+;;             (setq-default c-basic-offset 3 tab-width 3 indent-tabs-mode 't)))
 
 
 (add-path "~/emacs/site-lisp/yasnippet-0.6.1c")

@@ -81,5 +81,7 @@ main = do
            , ("M-f", spawn "firefox")
 --           , ("M-r", spawn "urxvtc")
            , ("M-S-t", spawn "trackpad-toggle") -- Turn on/off trackpad
+           , ("M-S-p", spawn "tap-toggle") -- Turn on/off tapping in touchpad to click
            , ("M-g", scratchpadSpawnActionTerminal "urxvtc")
            ]
+
