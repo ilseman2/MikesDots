@@ -13,6 +13,7 @@
 (add-path "~/emacs/config")
 (add-path "~/emacs/site-lisp")
 (add-path "~/emacs/site-lisp/themes")
+(add-path "~/k-framework/editor-support/emacs")
 
 (load "options.el")
 (load "keybindings.el")

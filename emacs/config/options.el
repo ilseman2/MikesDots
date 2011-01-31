@@ -40,6 +40,10 @@
 (setq maude-path "/home/ilseman2/maude-linux/maude")
 (load-library "maude-mode")
 
+;; K Framework
+(load-library "k-mode")
+
+
 ;; Vim mode-line
 (add-hook 'find-file-hook 'evimodeline-find-file-hook)
 
@@ -82,6 +86,10 @@
 
 ;; .emacs
 (add-to-list 'auto-mode-alist '("dotemacs$" . lisp-mode))
+
+;; .k
+(add-to-list 'auto-mode-alist '("\\.k$" . k-mode))
+(setq k-dash-comments 1) ;; See "--" as the beginning of a single line comment
 
 
 ;;; End Loads ;;;

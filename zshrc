@@ -57,7 +57,7 @@ fi
 
 # Mine:
   # Path
-  export PATH="$PATH:$HOME/maude-linux/:$HOME/.cabal/bin/"
+  export PATH="$PATH:$HOME/maude/:$HOME/.cabal/bin/"
 
   # Perl complains constantly unless I do this:
   export LANGUAGE=en_US

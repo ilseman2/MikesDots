@@ -52,6 +52,7 @@ my %links = (
   , xvidcaprc     => ".xvidcaprc"
 
   , wpa              => 'bin/wpa'
+  , go               => 'bin/go'
   , wep_ssid         => 'bin/wep-ssid'
   , trackpad_toggle  => 'bin/trackpad-toggle'
   , tap_toggle       => 'bin/tap-toggle'

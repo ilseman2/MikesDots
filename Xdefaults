@@ -12,4 +12,4 @@ URxvt.title:            ArchLinux
 URxvt.scrollBar:        false
 URxvt.jumpScroll:       true
 URxvt.urlLauncher:      /usr/bin/firefox
-URxvt.matcher.button:   1 
+URxvt.matcher.button:   1
