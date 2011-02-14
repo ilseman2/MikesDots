@@ -41,7 +41,7 @@
 (load-library "maude-mode")
 
 ;; K Framework
-(load-library "k-mode")
+;(load-library "k-mode")
 
 
 ;; Vim mode-line
@@ -152,7 +152,7 @@
 (setq ispell-program-name "aspell")   ; Use aspell instead of ispell
 
 ; 2 Space Tabs, by default (unless otherwise defined)
-(setq-default c-basic-offset 2 tab-width 2 indent-tabs-mode nil)
+(setq-default c-basic-offset 4 tab-width 4 indent-tabs-mode nil)
 (add-hook 'text-mode-hook 'flyspell-mode)        ;; Auto-flyspell for text mode
 (add-to-list 'backup-directory-alist             ;; Move all those NAME~ files to ~/.backups
              '("." . "~/.backups/"))
@@ -164,5 +164,5 @@
 (require 'smart-tab)
 
 ; Google Maps
-(add-path "~/emacs/site-lisp/google-maps")
-(require 'google-maps)
+;(add-path "~/emacs/site-lisp/google-maps")
+;(require 'google-maps)

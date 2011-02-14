@@ -19,9 +19,6 @@ alias ll="ls -l"
 alias lla="ls -al"
 alias lal="ls -al"
 
-# alias c="cd "
-# alias c..="cd .."
-
 alias h="htop"
 alias ef="ps -ef"
 alias dus="du -sc ./*"
@@ -31,6 +28,10 @@ alias emacsd="command emacs --daemon"
 alias emacs="emacsclient -c "
 alias temacs="emacsclient -c -nw"
 alias semacs="sudo emacs -nw"
+function bemacs () emacsclient -c $@ &
+
+# Some svn aliases
+alias svndiff="svn diff --diff-cmd kdiff3"
 
 # Always have rlwrap do readline, and prompt is cyan
 alias rlwrap="rlwrap -a -pcyan"
