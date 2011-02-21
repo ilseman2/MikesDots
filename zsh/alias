@@ -28,7 +28,7 @@ alias emacsd="command emacs --daemon"
 alias emacs="emacsclient -c "
 alias temacs="emacsclient -c -nw"
 alias semacs="sudo emacs -nw"
-function bemacs () emacsclient -c $@ &
+alias bemacs="emacsclient -c &"
 
 # Some svn aliases
 alias svndiff="svn diff --diff-cmd kdiff3"

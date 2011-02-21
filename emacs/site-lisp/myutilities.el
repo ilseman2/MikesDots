@@ -62,3 +62,4 @@ Ignores CHAR at point."
   (interactive "r\nsAlign regexp: ")
   (align-regexp start end
       (concat "\\(\\s-*\\)" regexp) 1 1 t))
+

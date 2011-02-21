@@ -1,0 +1,8 @@
+#name : switch ...
+# --
+switch ($1) {
+ $0
+ default:
+
+} // end of switch ($1)
+

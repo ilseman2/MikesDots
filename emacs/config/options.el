@@ -11,6 +11,10 @@
 (load-library "gse-number-rect")
 (load-library "auctex")
 (load-library "preview-latex")
+(require 'hexrgb)
+
+;; Set up Icicles
+(require 'icicles)
 
 (require 'ido)
 (require 'uniquify)
@@ -105,6 +109,7 @@
 (setq uniquify-ignore-buffers-re "^\\*")
 (setq uniquify-buffer-name-style 'reverse)
 (setq ido-enable-flex-matching t)
+(ido-everywhere t)
 (setq vip-inhibit-startup-message t)
 
 (add-hook 'fundamental-mode-hook 'flyspell-mode) ; Auto-flyspell for fundamental mode

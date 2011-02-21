@@ -60,8 +60,8 @@ fi
   export PATH="$PATH:$HOME/maude/:$HOME/.cabal/bin/"
 
   # Perl complains constantly unless I do this:
-  export LANGUAGE=en_US
-  export LC_ALL=en_US
+#  export LANGUAGE=en_US
+#  export LC_ALL=en_US
 
   # Editors, for shell and revision control systems
   export EDITOR="emacsclient -c -nw"

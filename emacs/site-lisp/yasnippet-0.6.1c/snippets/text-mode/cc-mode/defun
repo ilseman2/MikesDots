@@ -1,0 +1,6 @@
+#name : function definition
+# --
+$1 $2($3) {
+   $0
+} // end of $2 definition
+

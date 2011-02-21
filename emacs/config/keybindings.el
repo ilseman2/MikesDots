@@ -13,6 +13,7 @@
 (global-set-key "\C-h"   'backward-delete-char)         ;; I like terminal style backspace
 (global-set-key "\M-h"   'backward-kill-word)
 
+(global-set-key "\M-,"   'icy-mode) ;; Toggle icy-mode. I like icy-mode for tag searches, but nothing else
 
 ;(global-set-key "\C-cz"  'zsh)
 ;(global-set-key "\C-ce"  'eshell)
