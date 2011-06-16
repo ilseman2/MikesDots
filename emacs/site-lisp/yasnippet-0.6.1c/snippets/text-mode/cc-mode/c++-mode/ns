@@ -1,5 +1,6 @@
 #name : namespace ...
+#author : Michael Ilseman
 # --
-namespace $1 {
+namespace ${1:gla_llvm} {
     $0
-} // end of namespace $1
+} // end namespace $1

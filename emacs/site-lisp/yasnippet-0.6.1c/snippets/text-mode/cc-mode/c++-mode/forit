@@ -1,0 +1,6 @@
+#name : for iterators
+#author : Michael Ilseman
+# --
+for (${1:TYPE}::$2iterator ${3:i} = $5begin($6), ${4:e} = $5end($6); $3 != $4; ++$3) {
+    $0
+}

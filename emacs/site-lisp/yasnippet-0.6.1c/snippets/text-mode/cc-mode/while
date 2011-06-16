@@ -1,0 +1,6 @@
+#name : while () { ... }
+#author : Michael Ilseman
+# --
+while (${1:condition}) {
+    $0
+}

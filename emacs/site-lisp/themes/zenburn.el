@@ -237,7 +237,7 @@ static char *gnus-pointer[] = {
 ;;old:     `(default ((t (:background ,zenburn-bg :foreground ,zenburn-fg))))
      '(default ((t (:inherit nil :stipple nil :background "gray12" :foreground "green"
                     :inverse-video nil :box nil :strike-through nil :overline nil
-                    :underline nil :slant normal :weight normal :height 50
+                    :underline nil :slant normal :weight normal :height 14 :size 14 :spacing 110
                     :width normal :foundry "xos4" :family "Terminus"))))
      '(fixed-pitch ((t (:weight bold))))
      '(italic ((t (:slant italic))))
@@ -396,7 +396,7 @@ static char *gnus-pointer[] = {
 ;;old:     `(border ((t (:background ,zenburn-bg))))
      `(border ((t (:background ,zenburn-bg-1))))
 ;;old:     '(fringe ((t (:inherit zenburn-highlight-subtle))))
-     '(fringe ((t (:inherit zenburn-highlight-subtle :background "grey13"))))     
+     '(fringe ((t (:inherit zenburn-highlight-subtle :background "grey13"))))
      '(header-line ((t (:inherit zenburn-highlight-damp
                         :box (:color "#2e3330" :line-width 2)))))
 ;;old:     '(mode-line ((t (:foreground "#acbc90" :background "#1e2320"
@@ -427,7 +427,7 @@ static char *gnus-pointer[] = {
 ;;old:     `(scroll-bar ((t (:background ,zenburn-bg+2))))
      `(scroll-bar ((t (:background ,zenburn-bg-1))))
 ;;old:     `(tool-bar ((t (:background ,zenburn-bg+2))))
-     `(tool-bar ((t (:background ,zenburn-bg-1))))     
+     `(tool-bar ((t (:background ,zenburn-bg-1))))
 
      '(ido-first-match ((t (:inherit zenburn-primary-1))))
      '(ido-only-match ((t (:inherit zenburn-primary-2))))
@@ -1002,7 +1002,7 @@ static char *gnus-pointer[] = {
 
 
 ;; Entirely new entries:
-     '(vertical-border ((t (:foreground "grey30"))))          
+     '(vertical-border ((t (:foreground "grey30"))))
       )
 
     (zenburn-make-face-alias-clauses

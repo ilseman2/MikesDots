@@ -1,0 +1,4 @@
+#name : ... ... = dyn_cast<...>(...)
+#author : Michael Ilseman
+# --
+${1:TYPE}* ${2:NAME} = dyn_cast<$1>(${3:SRC});

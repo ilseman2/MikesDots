@@ -1,6 +1,7 @@
 #name : #ifndef XXX; #define XXX; #endif
+#author: modified by Michael Ilseman
 # --
-#ifndef ${1:_`(upcase (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))`_H_}
+#ifndef ${1:GLA_`(upcase (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))`_H}
 #define $1
 
 $0

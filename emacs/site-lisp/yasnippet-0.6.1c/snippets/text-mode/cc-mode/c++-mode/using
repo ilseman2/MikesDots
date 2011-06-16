@@ -1,4 +1,5 @@
-#name : using namespace ... 
+#name : using namespace ...
+#author: modified by Michael Ilseman
 # --
-using namespace ${std};
+using namespace ${llvm};
 $0

@@ -1,0 +1,4 @@
+#name : dyn_cast<...>(...)
+#author : Michael Ilseman
+# --
+dyn_cast<${1:TYPE}>(${2:SRC})

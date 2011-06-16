@@ -1,0 +1,4 @@
+#name : assert( ... )
+#author : Michael Ilseman
+# --
+assert(${1:condition}${2: && "${3:description}"});

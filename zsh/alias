@@ -32,6 +32,7 @@ alias bemacs="emacsclient -c &"
 
 # Some svn aliases
 alias svndiff="svn diff --diff-cmd kdiff3"
+alias svnchanges="svn st | grep -v ?"
 
 # Always have rlwrap do readline, and prompt is cyan
 alias rlwrap="rlwrap -a -pcyan"

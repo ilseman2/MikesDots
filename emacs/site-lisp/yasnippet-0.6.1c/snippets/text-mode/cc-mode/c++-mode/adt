@@ -1,0 +1,4 @@
+#name : LLVM's ADTs: ADT<type,size>
+#author : Michael Ilseman
+# --
+${1:ADT}<${2:TYPE},${3:SIZE}>

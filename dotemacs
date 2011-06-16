@@ -1,11 +1,4 @@
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "gray12" :foreground "green" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 50 :width normal :foundry "xos4" :family "Terminus")))))
-;; Note that for some reason the above has to be done before my-theme, to fix some font stuff
-
+;(set-default-font "-xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1")  ; medium
 
 (defun add-path (p)
   (setq load-path (cons p load-path)))
@@ -25,10 +18,23 @@
 ;(my-theme)
 (zenburn)
 
-
-
-
-
+;; Restore a couple faces
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "gray12" :foreground "green" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 14 :size 14 :spacing 110 :width normal :foundry "xos4" :family "Terminus"))))
+ '(ediff-current-diff-A ((((class color) (min-colors 16)) (:background "#664444"))))
+ '(ediff-current-diff-B ((((class color) (min-colors 16)) (:background "#226622"))))
+ '(ediff-even-diff-A ((((class color) (min-colors 16)) (:background "#555555"))))
+ '(ediff-even-diff-B ((((class color) (min-colors 16)) (:background "#444444"))))
+ '(ediff-odd-diff-A ((t (:stipple nil :background "#555555" :slant italic))))
+ '(ediff-odd-diff-B ((t (:stipple nil :background "#444444" :slant italic))))
+ '(fixme-face ((t (:inherit font-lock-warning))) t)
+ '(hl-line ((t (:background "#3a3a3a"))))
+ '(region ((t (:inherit nil :background "#355535"))))
+ '(tooltip ((((class color)) (:inherit variable-pitch :background "lightyellow" :foreground "black" :family "terminus")))))
 
 ;; Custom
 (custom-set-variables
@@ -38,12 +44,19 @@
   ;; If there is more than one, they won't work right.
  '(blink-cursor-mode t)
  '(column-number-mode t)
+ '(display-time-mode t)
+ '(ediff-diff-options "-w")
+ '(gdb-max-frames 120)
  '(initial-major-mode (quote text-mode))
+ '(mouse-wheel-progressive-speed nil)
+ '(mouse-wheel-scroll-amount (quote (5 ((shift) . 1) ((control)))))
  '(org-agenda-files (quote ("~/org.org")))
  '(preview-LaTeX-command (quote ("%`%l \"\\nonstopmode\\nofiles\\PassOptionsToPackage{" ("," . preview-required-option-list) "}{preview}\\AtBeginDocument{\\ifx\\ifPreview\\undefined" preview-default-preamble "\\fi}\"%' %t")))
  '(preview-default-option-list (quote ("displaymath" "floats" "graphics" "textmath" "sections" "footnotes")))
  '(preview-default-preamble (quote ("\\RequirePackage[" ("," . preview-default-option-list) "]{preview}[2004/11/05]" "\\PreviewEnvironment{itemize}" "\\PreviewEnvironment{verbatim}" "\\PreviewEnvironment{ocaml}" "\\PreviewEnvironment{tikzpicture}" "\\PreviewMacro[!]{\\n}" "\\PreviewMacro[!]{\\citet}" "\\PreviewMacro[!]{\\citep}")))
- '(show-paren-mode t))
+ '(show-paren-mode t)
+ '(speedbar-frame-parameters (quote ((minibuffer) (width . 80) (border-width . 1) (menu-bar-lines . 0) (tool-bar-lines . 0) (unsplittable . t) (left-fringe . 0))))
+ '(speedbar-indentation-width 4))
 
 ;;; Auto-saved macros ( to the end of the file) ;;;
 (put 'downcase-region 'disabled nil)
@@ -53,3 +66,10 @@
 ;; that the .emacs loaded without error to this point.
 (setq display-time-day-and-date t )
 (display-time)
+
+;; Set up the font and the size
+;(set-default-font "-xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1")  ; small
+
+;(set-default-font "-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1")  ; large
+
+(put 'upcase-region 'disabled nil)

@@ -11,7 +11,9 @@
 (load-library "gse-number-rect")
 (load-library "auctex")
 (load-library "preview-latex")
+(load-library "psvn")
 (require 'hexrgb)
+(require 'psvn)
 
 ;; Set up Icicles
 (require 'icicles)
@@ -22,18 +24,49 @@
 (require 'color-theme)
 (require 'scala-mode-auto)
 (require 'iedit)
+(require 'undo-tree)
+
+;; M-arrows will move between buffers
+(require 'windmove)
+(windmove-default-keybindings 'meta)
+
+;; When opening a file, go to the same place in it
+(require 'saveplace)
+(setq-default save-place t)
+
+;; Highlight FIXME, TODO, BUG
+'(copy-face font-lock-warning-face 'fixme-face)
+(add-hook 'c-mode-common-hook
+               (lambda ()
+                (font-lock-add-keywords nil
+                 '(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))))
+
+
+;; M-y, when not done after a C-y, will open a buffer of the kill ring.
+(require 'browse-kill-ring)
+(browse-kill-ring-default-keybindings)
+
+;; Run undo-tree rather than undo
+(global-undo-tree-mode)
+
+;; Have CUA for rectangles (but not for it's keys
+(setq cua-enable-cua-keys nil)
+(cua-mode t)
+
+;; Smoother scrolling
+(setq
+  scroll-margin 0
+  scroll-conservatively 100000
+  scroll-preserve-screen-position 1)
+
+;; Autopair
+(require 'autopair)
+(autopair-global-mode 1)
+
 
 (load "evimodeline.el")
 
-(load "tramp")
-(load "vip")
-;(require 'viper)
-
-;; Use actual tabs (grrr) for java mode
-;; (add-hook 'java-mode-hook
-;;           (lambda()
-;;             (setq-default c-basic-offset 3 tab-width 3 indent-tabs-mode 't)))
-
+;(load "tramp")
 
 (add-path "~/emacs/site-lisp/yasnippet-0.6.1c")
 (require 'yasnippet)
@@ -91,6 +124,12 @@
 ;; .emacs
 (add-to-list 'auto-mode-alist '("dotemacs$" . lisp-mode))
 
+;; .h files are c++
+(add-to-list 'auto-mode-alist '(".h$" . c++-mode))
+
+;; .frag files can be treated as c++ files for now
+(add-to-list 'auto-mode-alist '(".frag$" . c++-mode))
+
 ;; .k
 (add-to-list 'auto-mode-alist '("\\.k$" . k-mode))
 (setq k-dash-comments 1) ;; See "--" as the beginning of a single line comment
@@ -102,15 +141,12 @@
 ;;; Mode configurations ;;;
 
 (add-hook 'find-file-hooks 'linum-off)     ; linum off when a file is opened
-;(add-hook 'find-file-hooks 'dot-mode-on)  ; dot mode when file is opened
-;(add-hook 'find-file-hooks 'vip-mode)
 (setq uniquify-separator "|")
 (setq uniquify-after-kill-buffer-p t)
 (setq uniquify-ignore-buffers-re "^\\*")
 (setq uniquify-buffer-name-style 'reverse)
 (setq ido-enable-flex-matching t)
 (ido-everywhere t)
-(setq vip-inhibit-startup-message t)
 
 (add-hook 'fundamental-mode-hook 'flyspell-mode) ; Auto-flyspell for fundamental mode
 (add-hook 'text-mode-hook 'flyspell-mode)        ; as above, text-mode
@@ -137,11 +173,10 @@
 
 (setq show-trailing-whitespace 1)               ;; Highlight trailing whitespace
 (ido-mode t)                                    ;; Interactive Do, for opening files and switching buffers
-;(iswitchb-mode 1)                              ;; Interactive buffer switching, don't use with ido
 (tool-bar-mode -1)                              ;; Remove the entirely useless tool-bar
-(menu-bar-mode -1)                              ;; Hide menu
+;;(menu-bar-mode -1)                              ;; Hide menu
+(menu-bar-mode 1)                               ;; Show menu
 (show-paren-mode 1)                             ;; Show Paren-matching
-;(global-dot-mode 1)                            ;; C-. to redo
 (transient-mark-mode 1)                         ;; Show Highlight-region
 (column-number-mode 1)                          ;; Show column number on mode bar
 (setq echo-keystrokes 0.1)                      ;; Quickly show key pressed
@@ -168,6 +203,79 @@
 ; Smart tab
 (require 'smart-tab)
 
-; Google Maps
-;(add-path "~/emacs/site-lisp/google-maps")
-;(require 'google-maps)
+; Auto-fill comments
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (auto-fill-mode 1)
+            (set (make-local-variable 'fill-nobreak-predicate)
+                 (lambda ()
+                   (not (eq (get-text-property (point) 'face)
+                            'font-lock-comment-face))))))
+(add-hook 'find-file-hook (lambda() (setq fill-column 80)))
+
+; hs-minor-mode
+(add-hook 'c-mode-common-hook 'hs-minor-mode)
+
+;; Make tags be case sensitive
+(setq tags-case-fold-search nil)
+
+;; Have gdb use many windows
+(setq gdb-many-windows t)
+
+;; Have watched expressions raise the speedbar when they change
+(setq gdb-speedbar-auto-raise t)
+
+;; Have speedbar recognize fragment and vertex shaders
+(speedbar-add-supported-extension ".frag")
+(speedbar-add-supported-extension ".vert")
+
+(setq dabbrev-case-fold-search t)       ;; Have M-/ be case sensitive
+
+(setq ediff-split-window-function 'split-window-horizontally) ;; Have Ediff split down the middle by default
+(setq ediff-auto-refine 1)
+(setq-default ediff-auto-refine 1)
+(setq ediff-auto-refine-limit 1048576)
+
+;; Have ibuffer know about LunarGLASS directories
+(require 'ibuffer)
+(setq ibuffer-saved-filter-groups
+  (quote (("default"
+            ("TAGS"
+              (filename . "TAGS"))
+            ("LLVM"
+              (filename . "/LunarGLASS/Core/LLVM"))
+            ("LunarGLASS Core"
+              (filename . "/LunarGLASS/Core/"))
+            ("mesa"
+              (filename . "/LunarGLASS/mesa/"))
+            ("LunarGLASS misc"
+              (filename . "/LunarGLASS/"))
+            ("Kiwi"
+              (filename . "/Kiwi/"))
+            ))))
+
+;; Use human readable Size column instead of original one
+(define-ibuffer-column size-h
+  (:name "Size" :inline t)
+  (cond
+   ((> (buffer-size) 1000000) (format "%6.1fM" (/ (buffer-size) 1000000.0)))
+   ((> (buffer-size) 1000) (format "%6dk" (/ (buffer-size) 1000.0)))
+   (t (format "%6d" (buffer-size)))))
+
+;; Modify the default ibuffer-formats
+(setq ibuffer-formats
+      '((mark modified read-only " "
+              (name 18 18 :left :elide)
+              " "
+              (size-h 9 -1 :right)
+              " "
+              (mode 16 16 :left :elide)
+              " "
+              filename-and-process)))
+
+(add-hook 'ibuffer-mode-hook
+  (lambda ()
+    (ibuffer-switch-to-saved-filter-groups "default")))
+
+;; Choose hl-line-mode
+;;(global-hl-line-mode)

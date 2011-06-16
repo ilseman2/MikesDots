@@ -81,3 +81,5 @@ fi
 
   # Foreground $1, or %- by default
   function fgg() { if [[ -n $1 ]] ; then fg %$1 ; else fg %- ; fi}
+
+  export SVN_MERGE=kdiff3caller

@@ -1,0 +1,4 @@
+#name : isa<...>(...)
+#author : Michael Ilseman
+# --
+isa<${1:TYPE}>(${2:SRC})

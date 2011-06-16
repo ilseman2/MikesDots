@@ -1,0 +1,15 @@
+#name : INIALIZE_PASS ( ... )
+#author : Michael Ilseman
+# --
+char ${1:PassName}::ID = 0;
+INITIALIZE_PASS_BEGIN($1,
+                      "${2:PassStr}",
+                      "${3:Description}",
+                      ${4:false}, // Whether it looks only at CFG
+                      ${5:false}) // Whether it is an analysis pass
+$0
+INITIALIZE_PASS_END($1,
+                    "$2",
+                    "$3",
+                    $4, // Whether it looks only at CFG
+                    $5) // Whether it is an analysis pass
