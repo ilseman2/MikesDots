@@ -1,4 +1,4 @@
 #name : isa<...>(...)
 #author : Michael Ilseman
 # --
-isa<${1:TYPE}>(${2:SRC})
+${1:llvm::}isa<$1${2:TYPE}>(${3:SRC})

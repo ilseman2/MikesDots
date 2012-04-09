@@ -1,5 +1,7 @@
 ;;; Paths and loading
+
 (add-path "~/emacs/site-lisp/scala")
+(add-path "~/emacs/site-lisp/ecb-2.40")
 
 (load-library "linum")
 (load-library "midnight")
@@ -54,14 +56,14 @@
 (cua-mode t)
 
 ;; Smoother scrolling
-(setq
-  scroll-margin 0
-  scroll-conservatively 100000
-  scroll-preserve-screen-position 1)
+;; (setq
+;;   scroll-margin 0
+;;   scroll-conservatively 100000
+;;   scroll-preserve-screen-position 1)
 
 ;; Autopair
-(require 'autopair)
-(autopair-global-mode 1)
+;(require 'autopair)
+;(autopair-global-mode 1)
 
 
 (load "evimodeline.el")
@@ -127,8 +129,9 @@
 ;; .h files are c++
 (add-to-list 'auto-mode-alist '(".h$" . c++-mode))
 
-;; .frag files can be treated as c++ files for now
+;; .frag/vert files can be treated as c++ files for now
 (add-to-list 'auto-mode-alist '(".frag$" . c++-mode))
+(add-to-list 'auto-mode-alist '(".vert$" . c++-mode))
 
 ;; .k
 (add-to-list 'auto-mode-alist '("\\.k$" . k-mode))
@@ -213,8 +216,9 @@
                             'font-lock-comment-face))))))
 (add-hook 'find-file-hook (lambda() (setq fill-column 80)))
 
+
 ; hs-minor-mode
-(add-hook 'c-mode-common-hook 'hs-minor-mode)
+;(add-hook 'c-mode-common-hook 'hs-minor-mode)
 
 ;; Make tags be case sensitive
 (setq tags-case-fold-search nil)

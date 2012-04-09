@@ -70,6 +70,54 @@ Ignores CHAR at point."
       (error "No number at point"))
   (replace-match (number-to-string (1+ (string-to-number (match-string 0))))))
 
+;; emacs-fu's remember-mode frame
+(defun djcb-remember-frame ()
+  "turn the current frame into a small popup frame for remember mode;
+this is meant to be called with
+     emacsclient -c -e '(djcb-remember-frame)'"
+  (modify-frame-parameters nil
+    '( (name . "*Remember*") ;; must be same as in mode-hook below
+       (width .  80)
+       (height . 10)
+       (vertical-scroll-bars . nil)
+       (menu-bar-lines . nil)
+       (tool-bar-lines . nil)))
+  (org-remember)
+  (when (fboundp 'x-focus-frame) (x-focus-frame nil)) ;; X only....
+
+  (delete-other-windows))
+
+;; Semantic utilities from the CEDET mailing list
+(defvar semantic-tags-location-ring (make-ring 20))
+
+(defun semantic-goto-definition (point)
+  "Goto definition using semantic-ia-fast-jump save the pointer
+marker if tag is found"
+  (interactive "d")
+  (condition-case err
+      (progn
+        (ring-insert semantic-tags-location-ring (point-marker))
+        (semantic-ia-fast-jump point))
+    (error
+     ;;if not found remove the tag saved in the ring
+     (set-marker (ring-remove semantic-tags-location-ring 0) nil nil)
+     (signal (car err) (cdr err)))))
+
+(defun semantic-pop-tag-mark ()
+  "popup the tag save by semantic-goto-definition"
+  (interactive)
+  (if (ring-empty-p semantic-tags-location-ring)
+      (message "%s" "No more tags available")
+    (let* ((marker (ring-remove semantic-tags-location-ring 0))
+              (buff (marker-buffer marker))
+                 (pos (marker-position marker)))
+      (if (not buff)
+            (message "Buffer has been deleted")
+        (switch-to-buffer buff)
+        (goto-char pos))
+      (set-marker marker nil nil))))
+
+
 ;; Build LunarGLASS
 (defun build-lunarglass ()
   (interactive)
@@ -92,8 +140,14 @@ Ignores CHAR at point."
 
 (defun grep-project (regex)
   (interactive "sSearch project using regex: ")
-  (rgrep regex "*.cpp *.h" "~/LunarGLASS/"))
+  (rgrep regex "*.cpp *.h *.inc" "~/LunarGLASS/"))
 
 (defun grep-gla (regex)
   (interactive "sSearch LunarGLASS Core using regex: ")
-  (rgrep regex "*.cpp *.h" "~/LunarGLASS/Core/"))
+  (rgrep regex "*.cpp *.h *.inc" "~/LunarGLASS/Core/"))
+
+(defun grep-llvm (regex)
+  (interactive "sSearch LLVM using regex: ")
+  (rgrep regex "*.cpp *.h *.inc" "~/LunarGLASS/Core/LLVM/"))
+
+

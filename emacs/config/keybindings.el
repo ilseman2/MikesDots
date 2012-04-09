@@ -42,7 +42,7 @@
 (global-set-key "\C-cd"  'delete-trailing-whitespace)
 
 (global-set-key "\C-ci"  (lambda () (interactive) (point-to-register 0)))
-(global-set-key "\C-ce"  (lambda () (interactive) (jump-to-register 0)))
+(global-set-key "\C-c\C-i"  (lambda () (interactive) (jump-to-register 0)))
 
 
 (global-set-key "\M-n" 'scroll-up-1-line)
@@ -52,9 +52,8 @@
                                                         ;;(global-set-key "\C-9" 'scroll-up)
 (global-set-key [(control up)] 'scroll-down)
 
-
-(global-set-key [(meta down)] 'end-of-buffer)
-(global-set-key [(meta up)] 'beginning-of-buffer)
+;; (global-set-key [(meta down)] 'end-of-buffer)
+;; (global-set-key [(meta up)] 'beginning-of-buffer)
 
 (define-key global-map (kbd "C-;") 'iedit-mode)         ;; Pretty cool, replace all at once
 
@@ -90,7 +89,40 @@
 
 (global-set-key [f9] 'grep-project)
 (global-set-key [f10] 'grep-gla)
-(global-set-key [f11] 'occur)
+(global-set-key [f11] 'grep-llvm)
+(global-set-key [f12] 'occur)
+
+;; Semantic keybindings
+(defun ilseman/cedet-hook ()
+  (local-set-key [(meta return)] 'semantic-ia-complete-symbol-menu)
+  (local-set-key "\C-cj" 'semantic-ia-fast-jump)
+  (local-set-key "\C-cq" 'semantic-ia-show-doc)
+;;  (local-set-key "\C-cs" 'semantic-ia-show-summary)
+  (local-set-key "\C-cp" 'semantic-analyze-proto-impl-toggle)
+  )
+
+
+(defun ilseman/c-mode-cedet-hook ()
+ ;; (local-set-key "." 'semantic-complete-self-insert)
+ ;; (local-set-key ">" 'semantic-complete-self-insert)
+  (local-set-key "\C-ct" 'eassist-switch-h-cpp)
+  (local-set-key "\C-xt" 'eassist-switch-h-cpp)
+  (local-set-key "\C-ce" 'eassist-list-methods)
+  (local-set-key "\C-c\C-r" 'semantic-symref)
+  )
+(add-hook 'c-mode-common-hook 'ilseman/c-mode-cedet-hook)
+
+(add-hook 'c-mode-common-hook 'ilseman/cedet-hook)
+
+;; Turn on to have ctag's bindings use semantic (with it's own stack)
+(global-set-key (kbd "M-.") 'semantic-goto-definition)
+(global-set-key (kbd "M-*") 'semantic-pop-tag-mark)
+
+;; Refresh syntax highlighting
+(global-set-key (kbd "C-$") 'font-lock-fontify-buffer)
+
+;; Force refresh bovinator
+(global-set-key (kbd "C-!") (lambda () (interactive) (bovinate '(-1))))
 
 ;; TODO: keybinds for
 ;; C-x r w R : Save the window config into register R. C-x r j R to get back to it. Useful to store the current buffer and get back to it later

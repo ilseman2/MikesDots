@@ -1,6 +1,6 @@
 #name : function definition
 # --
-$1 $2($3) {
+${1:type} ${2:name}(${3:args}) {
    $0
 }
 
